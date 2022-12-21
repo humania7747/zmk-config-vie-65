@@ -1,6 +1,38 @@
 name: Build
 
-on: [push, pull_request, create, workflow_dispatch]
+on:
+  push:
+    paths:
+      - ".github/workflows/build.yml"
+      - "app/**"
+  pull_request:
+    paths:
+      - ".github/workflows/build.yml"
+      - "app/**"
+  schedule:
+    - cron: '22 4 * * *'
+  workflow_call:
+    inputs:
+      build_matrix_path:
+        description: "Path to the build matrix file"
+        default: "build.yaml"
+        required: false
+        type: string
+      config_path:
+        description: "Path to the config directory"
+        default: "config"
+        required: false
+        type: string
+      fallback_binary:
+        description: "Fallback binary format, if no *.uf2 file was built"
+        default: "bin"
+        required: false
+        type: string
+      archive_name:
+        description: 'Archive output file name'
+        default: 'firmware'
+        required: false
+        type: string
 
 jobs:
   matrix:
