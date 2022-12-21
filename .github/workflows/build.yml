@@ -38,17 +38,17 @@ jobs:
       # - name: List modules (west list)
       #   run: west list
       - name: Build (west build)
-        run: west build -s zmk/app -b hades65 -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
-      - name: Hades65 DTS File
+        run: west build -s zmk/app -b vie65 -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+      - name: Vie65 DTS File
         if: ${{ always() }}
         run: cat -n build/zephyr/hades65.dts.pre.tmp
-      - name: Hades65 .config
+      - name: Vie65 .config
         if: ${{ always() }}
         run: cat -n build/zephyr/.config
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 hades65.uf2
+        run: cp build/zephyr/zmk.uf2 vie65.uf2
       - name: Archive
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: hades65.uf2
+          path: vie65.uf2
