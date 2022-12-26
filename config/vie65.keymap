@@ -22,11 +22,13 @@
 
         password: password {
             compatible = "zmk,behavior-macro";
-            label = "new_macro";
+            label = "password";
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
                 <&kp LS(T) &kp U &kp M &kp O &kp T &kp D &kp E &kp N &kp N1 &kp N2 &kp RET>;
+
+            tap-ms = <50>;
         };
     };
 
