@@ -13,6 +13,6 @@
 #
 ---
 
-board: [ "vie65" ]
 include:
+  - board: vie65
     shield: settings_reset
