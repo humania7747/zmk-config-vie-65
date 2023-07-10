@@ -14,3 +14,4 @@
 ---
 
 board: [ "vie65" ]
+shield: settings_reset
